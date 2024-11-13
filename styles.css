@@ -1,3 +1,4 @@
+/* Общие сбросы и базовые стили */
 * {
     margin: 0;
     padding: 0;
@@ -5,20 +6,21 @@
 }
 
 body {
-    background-color: #e9f7f2;
+    background-color: #111;  /* Черный фон для всего сайта */
     font-family: 'Roboto', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    color: #fff;  /* Белый цвет для текста */
 }
 
 .calculator {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-    width: 360px;
+    background-color: #1e1e1e;  /* Темно-серый фон для калькулятора */
+    padding: 40px 50px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    width: 380px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -26,34 +28,40 @@ body {
 }
 
 h1 {
-    font-size: 1.8rem;
-    color: #333;
-    margin-bottom: 20px;
+    font-size: 2.5rem;
+    color: #f8c71c;  /* Золотистый цвет для заголовка */
+    margin-bottom: 30px;
+    font-weight: 700;
+    text-transform: uppercase;  /* Преобразуем текст в заглавные буквы */
+    letter-spacing: 2px;  /* Увеличиваем расстояние между буквами */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 25px #f8c71c, 0 0 5px #f8c71c;  /* Добавляем объемную тень */
 }
 
 .input-container {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     width: 100%;
 }
 
 input {
     width: 100%;
-    padding: 15px;
+    padding: 18px;
     font-size: 1.2rem;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    box-sizing: border-box;
-    transition: border-color 0.3s;
+    border: 2px solid #555;
+    border-radius: 10px;
+    background-color: #333;
+    color: #fff;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 input:focus {
-    border-color: #4CAF50;
+    border-color: #f8c71c;  /* Золотая рамка при фокусе */
     outline: none;
+    box-shadow: 0 0 10px rgba(248, 199, 28, 0.5);
 }
 
 label {
     font-size: 1rem;
-    color: #555;
+    color: #ddd;
     margin-bottom: 8px;
     display: block;
 }
@@ -62,63 +70,63 @@ label {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    gap: 10px;
+    gap: 20px;
 }
 
 .btn {
-    padding: 10px 20px;
-    font-size: 1rem;
+    padding: 12px 30px;
+    font-size: 1.1rem;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-    flex-grow: 1;  /* Растягивает кнопки по ширине */
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    flex-grow: 1;
 }
 
 .btn:hover {
-    transform: translateY(-2px);
+    transform: translateY(-4px);
 }
 
 .btn:active {
-    transform: translateY(2px);
+    transform: translateY(4px);
 }
 
 .btn.reset {
-    background-color: #f44336;
+    background-color: #e74c3c;  /* Красный цвет для кнопки сброса */
     color: white;
 }
 
 .btn.reset:hover {
-    background-color: #e53935;
+    background-color: #c0392b;
 }
 
 .btn {
-    background-color: #4CAF50;
+    background-color: #27ae60;  /* Зеленый для основной кнопки */
     color: white;
 }
 
 .btn:hover {
-    background-color: #45a049;
+    background-color: #2ecc71;
 }
 
 #result {
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: #333;
-    margin-top: 20px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+    margin-top: 30px;
     transition: opacity 0.3s ease-in-out;
 }
 
-/* Добавленный стиль для блока с оставшимися днями */
+/* Стиль для блока с оставшимися днями */
 .remaining-days-container {
-    margin-top: 20px;
-    padding: 15px;
-    border: 2px solid #4CAF50;
-    border-radius: 8px;
-    background-color: #f1f8f4;
-    color: #333;
-    font-size: 1.2rem;
-    font-weight: bold;
+    margin-top: 30px;
+    padding: 20px;
+    border: 2px solid #f8c71c;  /* Золотая рамка для информации */
+    border-radius: 10px;
+    background-color: #333;
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 500;
     text-align: center;
 }
