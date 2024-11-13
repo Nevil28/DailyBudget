@@ -33,8 +33,8 @@ function calculate() {
     // Расчет суммы на каждый день
     const dailyAmount = Math.round((amount / remainingDays) / 100) * 100;
 
-    // Выводим результат
-    document.getElementById('result').textContent = `Вы можете тратить по ${dailyAmount} рублей в день до выбранной даты.`;
+    // Выводим результат, разделяя текст на две строки
+    document.getElementById('result').innerHTML = `Вы сможете протянуть <br> на <span style="font-size: 1.8rem; font-weight: bold;">${dailyAmount}</span> рублей <br> в день.`;
 }
 
 function reset() {
