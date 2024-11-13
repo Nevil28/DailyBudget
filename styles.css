@@ -32,14 +32,14 @@ body {
 /* Заголовок */
 h1 {
     font-size: 2.2rem;
-    color: transparent; /* Делаем текст прозрачным, чтобы был виден только градиент */
+    color: transparent;
     background: linear-gradient(45deg, #FFD700, #FFCC00, #FF9900); /* Золотой градиент */
-    background-clip: text; /* Применяем градиент к тексту */
-    -webkit-background-clip: text; /* Для WebKit-браузеров */
-    text-transform: uppercase; /* Заголовок с объемными буквами */
-    letter-spacing: 3px; /* Расстояние между буквами */
-    font-weight: bold; /* Сделать текст жирным */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Легкая тень для улучшения читаемости */
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 /* Контейнер для ввода */
@@ -55,8 +55,7 @@ input {
     font-size: 1.2rem;
     border: 2px solid #ddd;
     border-radius: 8px;
-    box-sizing: border-box;
-    background-color: #424242;  /* Темный фон для поля ввода */
+    background-color: #424242;
     color: #fff;
     transition: border-color 0.3s;
 }
@@ -80,44 +79,45 @@ label {
     justify-content: space-between;
     width: 100%;
     gap: 10px;
-    flex-wrap: wrap; /* Перенос кнопок на новую строку на малых экранах */
+    flex-wrap: wrap;
 }
 
 /* Общий стиль для кнопок */
 .btn {
     padding: 12px 20px;
     font-size: 1.1rem;
-    border: none;
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-    flex-grow: 1;  /* Кнопки растягиваются по ширине */
+    flex-grow: 1;
     margin: 5px;
 }
 
 /* Кнопка "Рассчитать" */
 .btn {
-    background-color: #4CAF50;
+    background-color: #D4AF37; /* Светло-золотой цвет */
     color: white;
+    border: none;
 }
 
 .btn:hover {
-    background-color: #45a049;
-}
-
-.btn:active {
-    transform: translateY(2px);
+    background-color: #C19A2B; /* Чуть темнее при наведении */
 }
 
 /* Кнопка "Сбросить" */
 .btn.reset {
-    background-color: #f44336;
+    background: linear-gradient(145deg, #555, #444); /* Мягкий серый градиент */
     color: white;
+    border: none;
 }
 
 .btn.reset:hover {
-    background-color: #e53935;
+    background: linear-gradient(145deg, #666, #555); /* Чуть темнее при наведении */
+}
+
+.btn:active {
+    transform: translateY(2px);
 }
 
 /* Блок с результатом */
@@ -147,7 +147,7 @@ label {
 /* Для экранов шириной до 768px (например, планшеты) */
 @media screen and (max-width: 768px) {
     .calculator {
-        width: 90%;  /* Уменьшаем ширину калькулятора */
+        width: 90%;
         padding: 20px;
     }
 
@@ -168,7 +168,6 @@ label {
         font-size: 1.2rem;
     }
 
-    /* Меньшие отступы для мобильных устройств */
     .remaining-days-container {
         font-size: 1rem;
     }
