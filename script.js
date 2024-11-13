@@ -5,13 +5,11 @@ function calculate() {
     // Проверка на корректность введенной суммы и выбранной даты
     if (isNaN(amount) || amount <= 0) {
         document.getElementById('result').textContent = 'Пожалуйста, введите корректную сумму!';
-        document.getElementById('result').style.display = 'block'; // Показываем сообщение
         return;
     }
     
     if (!endDate) {
         document.getElementById('result').textContent = 'Пожалуйста, выберите дату!';
-        document.getElementById('result').style.display = 'block'; // Показываем сообщение
         return;
     }
 
@@ -22,7 +20,6 @@ function calculate() {
     // Проверка, что выбранная дата не прошла
     if (selectedDate <= currentDate) {
         document.getElementById('result').textContent = 'Дата должна быть в будущем!';
-        document.getElementById('result').style.display = 'block'; // Показываем сообщение
         return;
     }
 
@@ -33,19 +30,24 @@ function calculate() {
     // Отображаем оставшиеся дни
     document.getElementById('remaining-days').textContent = `Оставшиеся дни: ${remainingDays}`;
 
-    // Расчет суммы на каждый день (округление до десятков)
-    const dailyAmount = Math.round((amount / remainingDays) / 10) * 10;
+    // Расчет суммы на каждый день
+    const dailyAmount = Math.round((amount / remainingDays) / 10) * 10;  // Округляем до десятков
 
-    // Выводим результат, разделяя текст на две строки
-    document.getElementById('result').innerHTML = `Вы сможете протянуть <br> на <span style="font-size: 1.8rem; font-weight: bold;">${dailyAmount}</span> рублей <br> в день.`;
-    
-    // Показываем результат
-    document.getElementById('result').style.display = 'block';
+    // Если сумма на день 300 рублей или меньше, выводим только сообщение о голодании с суммой
+    if (dailyAmount <= 300) {
+        document.getElementById('result').textContent = ''; // Очистить вывод суммы
+        document.getElementById('hunger-message').textContent = `Режим "Полезное голодание" активирован! ${dailyAmount} рублей в день.`;
+    } else {
+        // Если сумма больше 300 рублей, показываем расчет
+        document.getElementById('result').innerHTML = `Вы сможете протянуть на <span>${dailyAmount}</span> рублей в день`;
+        document.getElementById('hunger-message').textContent = ''; // Очищаем сообщение о голодании
+    }
 }
 
 function reset() {
     document.getElementById('amount').value = '';  // Очищаем поле ввода
     document.getElementById('end-date').value = ''; // Очищаем поле даты
-    document.getElementById('result').style.display = 'none';  // Скрываем результат
+    document.getElementById('result').textContent = '';  // Очищаем результат
     document.getElementById('remaining-days').textContent = ''; // Очищаем оставшиеся дни
+    document.getElementById('hunger-message').textContent = ''; // Очищаем сообщение о голодании
 }
