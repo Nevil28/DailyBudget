@@ -1,64 +1,73 @@
-/* Общие сбросы и базовые стили */
+/* Сброс стилей по умолчанию */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Основной стиль для страницы */
 body {
-    background-color: #111;  /* Черный фон для всего сайта */
+    background-color: #212121;  /* Темный фон */
     font-family: 'Roboto', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    color: #fff;  /* Белый цвет для текста */
 }
 
+/* Стиль для калькулятора */
 .calculator {
-    background-color: #1e1e1e;  /* Темно-серый фон для калькулятора */
-    padding: 40px 50px;
-    border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-    width: 380px;
+    background-color: #333;  /* Фон калькулятора */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;  /* Максимальная ширина для больших экранов */
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+/* Заголовок */
+/* Заголовок */
 h1 {
-    font-size: 2.5rem;
-    color: #f8c71c;  /* Золотистый цвет для заголовка */
-    margin-bottom: 30px;
-    font-weight: 700;
-    text-transform: uppercase;  /* Преобразуем текст в заглавные буквы */
-    letter-spacing: 2px;  /* Увеличиваем расстояние между буквами */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 25px #f8c71c, 0 0 5px #f8c71c;  /* Добавляем объемную тень */
+    font-size: 2.2rem;
+    color: transparent; /* Делаем текст прозрачным, чтобы был виден только градиент */
+    background: linear-gradient(45deg, #FFD700, #FFCC00, #FF9900); /* Золотой градиент */
+    background-clip: text; /* Применяем градиент к тексту */
+    -webkit-background-clip: text; /* Для WebKit-браузеров */
+    text-transform: uppercase; /* Заголовок с объемными буквами */
+    letter-spacing: 3px; /* Расстояние между буквами */
+    font-weight: bold; /* Сделать текст жирным */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Легкая тень для улучшения читаемости */
 }
 
+/* Контейнер для ввода */
 .input-container {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     width: 100%;
 }
 
+/* Поля ввода */
 input {
     width: 100%;
-    padding: 18px;
+    padding: 15px;
     font-size: 1.2rem;
-    border: 2px solid #555;
-    border-radius: 10px;
-    background-color: #333;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: #424242;  /* Темный фон для поля ввода */
     color: #fff;
-    transition: border-color 0.3s, box-shadow 0.3s;
+    transition: border-color 0.3s;
 }
 
 input:focus {
-    border-color: #f8c71c;  /* Золотая рамка при фокусе */
+    border-color: #4CAF50;
     outline: none;
-    box-shadow: 0 0 10px rgba(248, 199, 28, 0.5);
 }
 
+/* Метки */
 label {
     font-size: 1rem;
     color: #ddd;
@@ -66,67 +75,131 @@ label {
     display: block;
 }
 
+/* Кнопки */
 .buttons {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    gap: 20px;
+    gap: 10px;
+    flex-wrap: wrap; /* Перенос кнопок на новую строку на малых экранах */
 }
 
+/* Общий стиль для кнопок */
 .btn {
-    padding: 12px 30px;
+    padding: 12px 20px;
     font-size: 1.1rem;
     border: none;
-    border-radius: 10px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    flex-grow: 1;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    flex-grow: 1;  /* Кнопки растягиваются по ширине */
+    margin: 5px;
+}
+
+/* Кнопка "Рассчитать" */
+.btn {
+    background-color: #4CAF50;
+    color: white;
 }
 
 .btn:hover {
-    transform: translateY(-4px);
+    background-color: #45a049;
 }
 
 .btn:active {
-    transform: translateY(4px);
+    transform: translateY(2px);
 }
 
+/* Кнопка "Сбросить" */
 .btn.reset {
-    background-color: #e74c3c;  /* Красный цвет для кнопки сброса */
+    background-color: #f44336;
     color: white;
 }
 
 .btn.reset:hover {
-    background-color: #c0392b;
+    background-color: #e53935;
 }
 
-.btn {
-    background-color: #27ae60;  /* Зеленый для основной кнопки */
-    color: white;
-}
-
-.btn:hover {
-    background-color: #2ecc71;
-}
-
+/* Блок с результатом */
 #result {
-    font-size: 1.5rem;
-    font-weight: 600;
+    font-size: 1.4rem;
+    font-weight: bold;
     color: #fff;
-    margin-top: 30px;
+    margin-top: 20px;
     transition: opacity 0.3s ease-in-out;
 }
 
-/* Стиль для блока с оставшимися днями */
+/* Блок с оставшимися днями */
 .remaining-days-container {
-    margin-top: 30px;
-    padding: 20px;
-    border: 2px solid #f8c71c;  /* Золотая рамка для информации */
-    border-radius: 10px;
-    background-color: #333;
+    margin-top: 20px;
+    padding: 15px;
+    border: 2px solid #4CAF50;
+    border-radius: 8px;
+    background-color: #424242;
     color: #fff;
-    font-size: 1.4rem;
-    font-weight: 500;
+    font-size: 1.2rem;
+    font-weight: bold;
     text-align: center;
+}
+
+/* Адаптивный дизайн для планшетов и мобильных устройств */
+
+/* Для экранов шириной до 768px (например, планшеты) */
+@media screen and (max-width: 768px) {
+    .calculator {
+        width: 90%;  /* Уменьшаем ширину калькулятора */
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .input-container input {
+        padding: 12px;
+    }
+
+    .btn {
+        font-size: 1rem;
+        padding: 10px 15px;
+    }
+
+    #result {
+        font-size: 1.2rem;
+    }
+
+    /* Меньшие отступы для мобильных устройств */
+    .remaining-days-container {
+        font-size: 1rem;
+    }
+}
+
+/* Для экранов шириной до 480px (мобильные устройства) */
+@media screen and (max-width: 480px) {
+    .calculator {
+        width: 100%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    .input-container input {
+        padding: 10px;
+    }
+
+    .btn {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+
+    #result {
+        font-size: 1rem;
+    }
+
+    .remaining-days-container {
+        font-size: 0.9rem;
+    }
 }
