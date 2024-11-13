@@ -8,13 +8,13 @@
 </head>
 <body>
     <div class="calculator">
-        <h1>Калькулятор ежедневных трат</h1>
+        <h1>Планировщик выживания</h1>
         <div class="input-container">
             <label for="amount">Введите вашу жалкую сумму</label>
             <input type="number" id="amount" placeholder="0">
         </div>
         <div class="input-container">
-            <label for="end-date">Выберите дату для расчета</label>
+            <label for="end-date">Выберите дату, до которой нужно прожить</label>
             <input type="date" id="end-date">
         </div>
         <div class="buttons">
@@ -24,7 +24,9 @@
         <div class="remaining-days-container">
             <p id="remaining-days"></p>
         </div>
-        <div id="result"></div>
+        <div id="result">
+            Вы сможете протянуть на <span id="daily-amount" style="font-size: 1.8rem; font-weight: bold;"></span> рублей в день.
+        </div>
     </div>
 
     <script src="script.js"></script>
