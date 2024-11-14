@@ -39,7 +39,7 @@ function calculate() {
         document.getElementById('hunger-message').textContent = `Режим "Полезное голодание" активирован! ${dailyAmount} рублей в день.`;
     } else {
         // Если сумма больше 300 рублей, показываем расчет
-        document.getElementById('result').innerHTML = `Вы сможете протянуть на <span>${dailyAmount}</span> рублей в день`;
+        document.getElementById('result').innerHTML = `Можете тратить <br> <span>${dailyAmount}</span> рублей в день`;
         document.getElementById('hunger-message').textContent = ''; // Очищаем сообщение о голодании
     }
 }
